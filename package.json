@@ -8,6 +8,9 @@
   "main": "./dist/main.js",
   "private": true,
   "packageManager": "pnpm@12.15.0",
+  "engines": {
+    "node": "24.x"
+  },
   "author": {
     "name": "OpenTubeX contributors",
     "email": "info@opentubex.org",
