@@ -47,3 +47,5 @@ _scripts/macos-native/build/
 ios/App/Python.xcframework/
 ios/App/python-packages/
 browser-extension/_metadata/
+.vercel
+.env*
