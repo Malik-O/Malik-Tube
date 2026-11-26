@@ -19,6 +19,9 @@ const postcssLoader = {
   loader: 'postcss-loader',
   options: {
     postcssOptions: {
+      // The plugins are given inline, so skip the config file search, which
+      // would walk every parent directory for each CSS file
+      config: false,
       // The CSS minimizer adds the vendor prefixes the targets need
       plugins: [postcssFontScale]
     }
