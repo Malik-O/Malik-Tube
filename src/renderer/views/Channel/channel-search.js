@@ -77,9 +77,14 @@ export function getInvidiousChannelSearchResultType(item) {
  * @param {string} filter
  */
 export function filterChannelSearchResults(results, filter) {
+  const studyResults = results.filter(result =>
+    result.channelSearchResultType !== CHANNEL_SEARCH_FILTERS.SHORTS &&
+    result.channelSearchResultType !== CHANNEL_SEARCH_FILTERS.LIVE
+  )
+
   if (filter === CHANNEL_SEARCH_FILTERS.ALL) {
-    return results
+    return studyResults
   }
 
-  return results.filter(result => result.channelSearchResultType === filter)
+  return studyResults.filter(result => result.channelSearchResultType === filter)
 }

@@ -21,12 +21,6 @@ export function getEnabledSubscriptionFeedSources(getters) {
   if (!getters.getHideSubscriptionsVideos) {
     feeds.push({ category: 'videos', cache: getters.getVideoCache, entriesKey: 'videos', includeCollaborations: getters.getIncludeSubscriptionCollaborations === true })
   }
-  if (!getters.getHideSubscriptionsShorts) {
-    feeds.push({ category: 'shorts', cache: getters.getShortsCache, entriesKey: 'videos' })
-  }
-  if (!getters.getHideLiveStreams && !getters.getHideSubscriptionsLive) {
-    feeds.push({ category: 'live', cache: getters.getLiveCache, entriesKey: 'videos' })
-  }
   if (!getters.getHideSubscriptionsCommunity && !getters.getUseRssFeeds) {
     feeds.push({ category: 'posts', cache: getters.getPostsCache, entriesKey: 'posts' })
   }

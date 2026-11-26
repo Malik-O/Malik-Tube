@@ -1,6 +1,6 @@
 {
   "appId": "org.opentubex.app",
-  "appName": "OpenTubeX",
+  "appName": "Malik-Tube",
   "webDir": "dist/capacitor",
   "loggingBehavior": "none",
   "plugins": {

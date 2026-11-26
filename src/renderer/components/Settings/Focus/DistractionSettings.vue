@@ -48,13 +48,6 @@
           @change="updateHideChannelSubscriptions"
         />
         <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Sharing Actions')"
-          :compact="true"
-          :default-value="hideSharingActions"
-          setting-key="hideSharingActions"
-          @change="updateHideSharingActions"
-        />
-        <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Videos on Watch')"
           :default-value="hideWatchedSubs"
           setting-key="hideWatchedSubs"
@@ -78,20 +71,6 @@
           :default-value="hideChannelAvatars"
           setting-key="hideChannelAvatars"
           @change="updateHideChannelAvatars"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Live Streams')"
-          :compact="true"
-          :default-value="hideLiveStreams"
-          setting-key="hideLiveStreams"
-          @change="updateHideLiveStreams"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
-          :compact="true"
-          :default-value="hideUpcomingPremieres"
-          setting-key="hideUpcomingPremieres"
-          @change="updateHideUpcomingPremieres"
         />
         <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
@@ -241,24 +220,8 @@
           setting-key="hideSubscriptionsVideos"
           @change="updateHideSubscriptionsVideos"
         />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Subscriptions Shorts')"
-          :compact="true"
-          :default-value="hideSubscriptionsShorts"
-          setting-key="hideSubscriptionsShorts"
-          @change="updateHideSubscriptionsShorts"
-        />
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
-          :compact="true"
-          :disabled="hideLiveStreams"
-          :default-value="hideLiveStreams || hideSubscriptionsLive"
-          setting-key="hideSubscriptionsLive"
-          :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
-          v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
-        />
         <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Subscriptions Posts')"
           :compact="true"
@@ -281,13 +244,6 @@
           :default-value="hideChannelHome"
           setting-key="hideChannelHome"
           @change="updateHideChannelHome"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Shorts')"
-          :compact="true"
-          :default-value="hideChannelShorts"
-          setting-key="hideChannelShorts"
-          @change="updateHideChannelShorts"
         />
         <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Channel Playlists')"
@@ -318,13 +274,6 @@
           :default-value="hideChannelCommunity"
           setting-key="hideChannelCommunity"
           @change="updateHideChannelCommunity"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Featured Channels')"
-          :compact="true"
-          :default-value="hideFeaturedChannels"
-          setting-key="hideFeaturedChannels"
-          @change="updateHideFeaturedChannels"
         />
         <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Channel Releases')"
@@ -385,13 +334,6 @@
           @change="updateHideRepeatStats"
         />
         <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide End-Screen Annotations')"
-          :compact="true"
-          :default-value="hideEndScreenAnnotations"
-          setting-key="hideEndScreenAnnotations"
-          @change="updateHideEndScreenAnnotations"
-        />
-        <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Comment Likes')"
           :compact="true"
           :disabled="hideComments"
@@ -401,42 +343,6 @@
         />
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Live Chat')"
-          :compact="true"
-          :default-value="hideLiveChat"
-          setting-key="hideLiveChat"
-          @change="updateHideLiveChat"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Live Chat Replay')"
-          :compact="true"
-          :default-value="hideLiveChatReplay"
-          setting-key="hideLiveChatReplay"
-          @change="updateHideLiveChatReplay"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Recommended Videos')"
-          :compact="true"
-          :default-value="hideRecommendedVideos"
-          setting-key="hideRecommendedVideos"
-          @change="handleHideRecommendedVideos"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide End-Screen Recommendations')"
-          :compact="true"
-          :disabled="hideRecommendedVideos"
-          :default-value="hideRecommendedVideos || hideEndScreenRecommendations"
-          setting-key="hideEndScreenRecommendations"
-          @change="store.dispatch('updateHideEndScreenRecommendations', $event)"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Comments')"
-          :compact="true"
-          :default-value="hideComments"
-          setting-key="hideComments"
-          @change="updateHideComments"
-        />
         <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
           :compact="true"
@@ -595,22 +501,6 @@ function updateHideCommentLikes(value) {
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const hideRecommendedVideos = computed(() => store.getters.getHideRecommendedVideos)
-
-const hideEndScreenRecommendations = computed(() => store.getters.getHideEndScreenRecommendations)
-
-/**
- * @param {boolean} value
- */
-function handleHideRecommendedVideos(value) {
-  if (value) {
-    store.dispatch('updatePlayNextVideo', false)
-  }
-
-  store.dispatch('updateHideRecommendedVideos', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
 const hidePlaylists = computed(() => store.getters.getHidePlaylists)
 
 /**
@@ -625,26 +515,6 @@ const hidePlaylistStats = computed(() => store.getters.getHidePlaylistStats)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideRecommendationDetails = computed(() => store.getters.getHideRecommendationDetails)
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideLiveChat = computed(() => store.getters.getHideLiveChat)
-
-/**
- * @param {boolean} value
- */
-function updateHideLiveChat(value) {
-  store.dispatch('updateHideLiveChat', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideLiveChatReplay = computed(() => store.getters.getHideLiveChatReplay)
-
-/**
- * @param {boolean} value
- */
-function updateHideLiveChatReplay(value) {
-  store.dispatch('updateHideLiveChatReplay', value)
-}
 
 /** @type {import('vue').ComputedRef<string>} */
 const aiVideoSummaryMode = computed(() => store.getters.getAiVideoSummaryMode)
@@ -666,13 +536,6 @@ const videoDescriptionModeNames = computed(() => [
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideComments = computed(() => store.getters.getHideComments)
 
-/**
- * @param {boolean} value
- */
-function updateHideComments(value) {
-  store.dispatch('updateHideComments', value)
-}
-
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideCommentPhotos = computed(() => store.getters.getHideCommentPhotos)
 
@@ -681,36 +544,6 @@ const hideCommentPhotos = computed(() => store.getters.getHideCommentPhotos)
  */
 function updateHideCommentPhotos(value) {
   store.dispatch('updateHideCommentPhotos', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideLiveStreams = computed(() => store.getters.getHideLiveStreams)
-
-/**
- * @param {boolean} value
- */
-function updateHideLiveStreams(value) {
-  store.dispatch('updateHideLiveStreams', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideUpcomingPremieres = computed(() => store.getters.getHideUpcomingPremieres)
-
-/**
- * @param {boolean} value
- */
-function updateHideUpcomingPremieres(value) {
-  store.dispatch('updateHideUpcomingPremieres', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideSharingActions = computed(() => store.getters.getHideSharingActions)
-
-/**
- * @param {boolean} value
- */
-function updateHideSharingActions(value) {
-  store.dispatch('updateHideSharingActions', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -750,17 +583,6 @@ function updateHideRepeatStats(value) {
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const hideEndScreenAnnotations = computed(() => store.getters.getHideEndScreenAnnotations)
-
-/**
- * @param {boolean} value
- */
-function updateHideEndScreenAnnotations(value) {
-  store.dispatch('updateHideEndScreenAnnotations', value)
-}
-/** @type {import('vue').ComputedRef<boolean>} */
-
-/** @type {import('vue').ComputedRef<boolean>} */
 const hidePaidPromotion = computed(() => store.getters.getHidePaidPromotion)
 
 /**
@@ -768,26 +590,6 @@ const hidePaidPromotion = computed(() => store.getters.getHidePaidPromotion)
  */
 function updateHidePaidPromotion(value) {
   store.dispatch('updateHidePaidPromotion', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideFeaturedChannels = computed(() => store.getters.getHideFeaturedChannels)
-
-/**
- * @param {boolean} value
- */
-function updateHideFeaturedChannels(value) {
-  store.dispatch('updateHideFeaturedChannels', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideChannelShorts = computed(() => store.getters.getHideChannelShorts)
-
-/**
- * @param {boolean} value
- */
-function updateHideChannelShorts(value) {
-  store.dispatch('updateHideChannelShorts', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -868,34 +670,6 @@ const hideSubscriptionsVideos = computed(() => store.getters.getHideSubscription
  */
 function updateHideSubscriptionsVideos(value) {
   store.dispatch('updateHideSubscriptionsVideos', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideSubscriptionsShorts = computed(() => store.getters.getHideSubscriptionsShorts)
-
-/**
- * @param {boolean} value
- */
-function updateHideSubscriptionsShorts(value) {
-  store.dispatch('updateHideSubscriptionsShorts', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideSubscriptionsLive = computed(() => store.getters.getHideSubscriptionsLive)
-
-const hideSubscriptionsLiveTooltip = computed(() => {
-  return t('Tooltips.Distraction Free Settings.Hide Subscriptions Live', {
-    appWideSetting: t('Settings.Distraction Free Settings.Hide Live Streams'),
-    subsection: t('Settings.Distraction Free Settings.Sections.General'),
-    settingsSection: t('Settings.Distraction Free Settings.Distraction Free Settings')
-  })
-})
-
-/**
- * @param {boolean} value
- */
-function updateHideSubscriptionsLive(value) {
-  store.dispatch('updateHideSubscriptionsLive', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

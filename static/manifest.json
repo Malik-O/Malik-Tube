@@ -1,10 +1,10 @@
 {
 	"dir" : "ltr",
-	"name" : "OpenTubeX",
+	"name" : "Malik-Tube",
 	"scope" : "../",
 	"display" : "standalone",
 	"start_url" : "../",
-	"short_name" : "OpenTubeX",
+	"short_name" : "Malik-Tube",
 	"theme_color" : "transparent",
 	"orientation" : "any",
 	"background_color" : "transparent",

@@ -788,7 +788,7 @@ const UnsupportedPlayerActions = /** @type {const} */({
 
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
-const DEFAULT_LANDING_PAGE = 'home'
+const DEFAULT_LANDING_PAGE = 'subscriptions'
 const LEGACY_DEFAULT_LANDING_PAGE = 'subscriptions'
 
 function resolveLandingPage(landingPage, availablePages = null) {

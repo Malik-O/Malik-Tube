@@ -1,7 +1,5 @@
 export const HOME_SECTION_IDS = Object.freeze([
   'continueWatching',
-  'recommendations',
-  'youtubeRecommendations',
   'newSinceLastVisit',
   'watchQueue',
   'playlists',

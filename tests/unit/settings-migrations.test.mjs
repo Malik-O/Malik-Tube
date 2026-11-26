@@ -293,9 +293,7 @@ test('migrates navigation visibility switches to an ordered list', () => {
       'userplaylists',
       'history',
       'subscribedchannels',
-      'trending',
       'stats',
-      'twitch',
     ],
   })
 })

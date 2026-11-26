@@ -7,7 +7,6 @@ import {
   KeyboardShortcuts,
 } from '../../constants'
 import { createSettingsSearchIndex } from './settingsSearch'
-import { isMostPopularAvailable, isTrendingAvailable } from '../../navigationAvailability'
 import { getTabAvatarUrl, getTabPageIcon } from '../tabs/tabPreview'
 import { isPlayerRoutePath } from '../tabs/playerDockDestination'
 import { switchActiveProfile, translateProfileName } from './profileSwitching'
@@ -239,31 +238,16 @@ export function createCommandPaletteRegistry(context) {
 }
 
 function addNavigationCommands(commands, context) {
-  const { t, groups, navigate, routePath, goHistory, store, isElectron, isCapacitor, routeAvailable, supportsLocalApi } = context
+  const { t, groups, navigate, routePath, goHistory, isElectron, routeAvailable } = context
   const navigationCommands = [
     ['subscriptions', '/subscriptions', 'Subscriptions.Subscriptions', ['home', 'feed'], ['fas', 'subscriptions']],
     ['channels', '/subscribedchannels', 'Channels.Channels', ['subscriptions', 'channel list'], ['fas', 'user-check']],
-    ['trending', '/trending', 'Trending.Trending', ['discover'], ['fas', 'fire']],
-    ['popular', '/popular', 'Most Popular', ['popular videos'], ['fas', 'users']],
     ['playlists', '/userplaylists', 'Playlists', ['saved videos'], ['far', 'bookmark']],
     ['history', '/history', 'History.History', ['watched videos'], ['fas', 'clock-rotate-left']],
     ['stats', '/stats', 'Stats.Stats', ['watch statistics'], ['fas', 'chart-line']],
-    ['twitch', '/twitch', 'Twitch Page.Twitch', ['live streams', 'categories'], ['fab', 'twitch']],
   ]
-  const providerOptions = {
-    supportsLocalApi,
-    backendPreference: store.getters.getBackendPreference,
-    backendFallback: store.getters.getBackendFallback,
-  }
-  const providerAvailability = new Map([
-    ['trending', isTrendingAvailable(providerOptions)],
-    ['popular', isMostPopularAvailable(providerOptions)],
-    // Without yt-dlp, its route only redirects
-    ['twitch', Boolean((isElectron || isCapacitor) && !isLiteBuild) && store.getters.getEnableTwitchPage],
-  ])
 
   for (const [id, path, labelKey, aliases, icon] of navigationCommands) {
-    if (providerAvailability.get(id) === false) continue
     // eslint-disable-next-line @intlify/vue-i18n/no-dynamic-keys
     commands.push(command(`navigate.${id}`, t(labelKey), groups.navigation, {
       aliases,

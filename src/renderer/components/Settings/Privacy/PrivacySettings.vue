@@ -31,13 +31,6 @@
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
-          :label="$t('Settings.General Settings.Enable Search Suggestions')"
-          :default-value="enableSearchSuggestions"
-          setting-key="enableSearchSuggestions"
-          compact
-          @change="updateEnableSearchSuggestions"
-        />
-        <FtToggleSwitch
           :label="$t('Settings.Privacy Settings.Remember Search History')"
           compact
           :default-value="rememberSearchHistory"
@@ -250,16 +243,6 @@ async function saveRetention(kind) {
     message: t('Settings.Privacy Settings.History Retention Saved'),
     icon: ['fas', 'check']
   })
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const enableSearchSuggestions = computed(() => store.getters.getEnableSearchSuggestions)
-
-/**
- * @param {boolean} value
- */
-function updateEnableSearchSuggestions(value) {
-  store.dispatch('updateEnableSearchSuggestions', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

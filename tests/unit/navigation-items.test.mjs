@@ -9,8 +9,8 @@ import {
 
 test('keeps valid navigation items in the selected order', () => {
   assert.deepEqual(
-    normalizeNavigationItems(['history', 'home', 'history', 'removed', 'twitch']),
-    ['history', 'home', 'twitch']
+    normalizeNavigationItems(['history', 'home', 'history', 'removed', 'stats']),
+    ['history', 'home', 'stats']
   )
 })
 
@@ -27,6 +27,6 @@ test('converts the former hide switches to navigation items', () => {
       hidePopularVideos: false,
       hideTrendingVideos: true,
     }),
-    ['subscriptions', 'history', 'subscribedchannels', 'popular', 'stats', 'twitch']
+    ['subscriptions', 'history', 'subscribedchannels', 'stats']
   )
 })

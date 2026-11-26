@@ -1,4 +1,3 @@
-import { supportsYtDlp } from '../helpers/ytDlpCapabilities'
 import { defineAsyncComponent, h, markRaw, shallowRef } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { getFixedInternalRouteTitle } from '../../internalRoutes'
@@ -46,8 +45,6 @@ function createAsyncRoute(loader) {
 const Subscriptions = createAsyncRoute(() => import('../views/Subscriptions/Subscriptions.vue'))
 const Home = createAsyncRoute(() => import('../views/Home/Home.vue'))
 const SubscribedChannels = createAsyncRoute(() => import('../views/SubscribedChannels/SubscribedChannels.vue'))
-const Trending = createAsyncRoute(() => import('../views/Trending/Trending.vue'))
-const Popular = createAsyncRoute(() => import('../views/Popular/Popular.vue'))
 // Your Playlists only shows playlist cards, which load lazily as well. Loading
 // them with the view renders them in its first frame instead of a frame after
 // their own request. The view still opens if they fail. Their async wrapper
@@ -65,11 +62,6 @@ const SearchPage = createAsyncRoute(() => import('../views/SearchPage/SearchPage
 const Playlist = createAsyncRoute(() => import('../views/Playlist/Playlist.vue'))
 const Channel = createAsyncRoute(() => import('../views/Channel/Channel.vue'))
 const Watch = createAsyncRoute(() => import('../views/Watch/Watch.vue'))
-const ExternalMedia = createAsyncRoute(() => import('../views/ExternalMedia/ExternalMedia.vue'))
-const ExternalChannel = createAsyncRoute(() => import('../views/ExternalChannel/ExternalChannel.vue'))
-const ExternalPlaylist = createAsyncRoute(() => import('../views/ExternalPlaylist/ExternalPlaylist.vue'))
-const ExternalCategory = createAsyncRoute(() => import('../views/ExternalCategory/ExternalCategory.vue'))
-const TwitchPage = createAsyncRoute(() => import('../views/TwitchPage/TwitchPage.vue'))
 const Hashtag = createAsyncRoute(() => import('../views/Hashtag/Hashtag.vue'))
 const Post = createAsyncRoute(() => import('../views/Post.vue'))
 
@@ -143,26 +135,8 @@ export const routes = [
     },
     component: SubscribedChannels
   },
-  ...(process.env.SUPPORTS_LOCAL_API
-    ? [{
-        path: '/trending',
-        name: 'trending',
-        meta: {
-          title: getFixedInternalRouteTitle('/trending'),
-          hasResizableThumbnails: true
-        },
-        component: Trending
-      }]
-    : []),
-  {
-    path: '/popular',
-    name: 'popular',
-    meta: {
-      title: getFixedInternalRouteTitle('/popular'),
-      hasResizableThumbnails: true
-    },
-    component: Popular
-  },
+  { path: '/trending', redirect: '/' },
+  { path: '/popular', redirect: '/' },
   {
     path: '/userplaylists',
     name: 'userPlaylists',
@@ -218,45 +192,11 @@ export const routes = [
     path: '/watch/:id',
     component: Watch
   },
-  ...(supportsYtDlp
-    ? [{
-        path: '/external-media',
-        component: ExternalMedia
-      }, {
-        // Channels and playlists of other platforms, whose items play through yt-dlp
-        path: '/external-channel',
-        meta: {
-          hasResizableThumbnails: true
-        },
-        component: ExternalChannel
-      }, {
-        path: '/external-playlist',
-        meta: {
-          hasResizableThumbnails: true
-        },
-        component: ExternalPlaylist
-      }, {
-        path: '/external-category',
-        meta: {
-          hasResizableThumbnails: true
-        },
-        component: ExternalCategory
-      }, {
-        path: '/twitch',
-        name: 'twitch',
-        meta: {
-          title: getFixedInternalRouteTitle('/twitch'),
-          hasResizableThumbnails: true
-        },
-        component: TwitchPage
-      }]
-    : [
-        { path: '/external-media', redirect: '/' },
-        { path: '/external-channel', redirect: '/' },
-        { path: '/external-playlist', redirect: '/' },
-        { path: '/external-category', redirect: '/' },
-        { path: '/twitch', redirect: '/' }
-      ]),
+  { path: '/external-media', redirect: '/' },
+  { path: '/external-channel', redirect: '/' },
+  { path: '/external-playlist', redirect: '/' },
+  { path: '/external-category', redirect: '/' },
+  { path: '/twitch', redirect: '/' },
   {
     path: '/hashtag/:hashtag',
     meta: {

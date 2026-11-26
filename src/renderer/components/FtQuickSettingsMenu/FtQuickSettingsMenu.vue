@@ -348,15 +348,6 @@
                       :icon="['fas', 'photo-film']"
                       @change="updateSetting('DefaultQuality', $event)"
                     />
-                    <FtToggleSwitch
-                      v-else-if="setting.id === 'playNextVideo'"
-                      :label="t('Settings.Player Settings.Play Next Video')"
-                      :default-value="playNextVideo"
-                      :disabled="hideRecommendedVideos"
-                      setting-key="playNextVideo"
-                      compact
-                      @change="updateSetting('PlayNextVideo', $event)"
-                    />
                     <FtSlider
                       v-else-if="setting.id === 'defaultPlayback'"
                       :label="t('Settings.Player Settings.Default Playback Rate')"
@@ -402,22 +393,6 @@
                       :select-values="VIEW_TYPE_VALUES"
                       :icon="VIEW_TYPE_ICONS[playlistViewType]"
                       @change="updateSetting('PlaylistViewType', $event)"
-                    />
-                    <FtToggleSwitch
-                      v-else-if="setting.id === 'hideRecommendedVideos'"
-                      :label="t('Settings.Distraction Free Settings.Hide Recommended Videos')"
-                      :default-value="hideRecommendedVideos"
-                      setting-key="hideRecommendedVideos"
-                      compact
-                      @change="handleHideRecommendedVideos"
-                    />
-                    <FtToggleSwitch
-                      v-else-if="setting.id === 'hideComments'"
-                      :label="t('Settings.Distraction Free Settings.Hide Comments')"
-                      :default-value="hideComments"
-                      setting-key="hideComments"
-                      compact
-                      @change="updateSetting('HideComments', $event)"
                     />
                     <FtSelect
                       v-else-if="setting.id === 'currentLocale'"
@@ -639,12 +614,9 @@ const mainColorAvailable = computed(() => (
 const uiScale = computed(() => store.getters.getUiScale)
 const { thumbnailSize, maxThumbnailSize } = useThumbnailSizeSlider()
 const { thumbnailSize: playlistThumbnailSize, maxThumbnailSize: maxPlaylistThumbnailSize } = useThumbnailSizeSlider('playlistThumbnailSize')
-const playNextVideo = computed(() => store.getters.getPlayNextVideo)
 const enableSubtitlesByDefault = computed(() => store.getters.getEnableSubtitlesByDefault)
 const listType = computed(() => store.getters.getListType)
 const playlistViewType = computed(() => store.getters.getPlaylistViewType)
-const hideRecommendedVideos = computed(() => store.getters.getHideRecommendedVideos)
-const hideComments = computed(() => store.getters.getHideComments)
 const currentLocale = computed(() => store.getters.getCurrentLocale)
 const region = computed(() => store.getters.getRegion)
 const regionNames = computed(() => store.getters.getRegionNames)
@@ -985,15 +957,6 @@ function previewThumbnailSize(value, settingKey) {
 
 function updateThumbnailSize(value, settingKey) {
   return runSettingUpdate(() => store.dispatch(settingKey === 'playlistThumbnailSize' ? 'updatePlaylistThumbnailSize' : 'updateThumbnailSize', value))
-}
-
-function handleHideRecommendedVideos(value) {
-  return runSettingUpdate(async () => {
-    if (value) {
-      await store.dispatch('updatePlayNextVideo', false)
-    }
-    await store.dispatch('updateHideRecommendedVideos', value)
-  })
 }
 
 function openSettings() {

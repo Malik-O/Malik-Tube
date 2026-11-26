@@ -23,11 +23,9 @@ if (markPaths.length === 0) throw new Error('No mark paths found')
 const MARK_VIEWBOX = '0 0 657.69397 657.69397'
 
 // --- Extract the wordmark geometry ---
-const wordSrc = readFileSync(join(here, 'wordmark-paths.svg'), 'utf8')
-const wordPath = wordSrc.match(/<path\b[^>]*\bd="([^"]+)"[^>]*>/)?.[1]
-if (!wordPath) throw new Error('No wordmark path found')
-// Tight bounding box of the wordmark glyphs (from `inkscape --query`).
-const WORD_BBOX = { x: 12.0117, y: 78.8086, w: 1667.92, h: 282.422 }
+// "Malik-Tube" is rendered as SVG text instead of glyph paths so the wordmark
+// can be regenerated without font-tooling (Inkscape).
+const WORD_BBOX = { x: 0, y: 0, w: 620, h: 110 }
 
 // --- Per-theme fill colours (matching the original FreeTube assets) ---
 // Each theme keeps the exact single colour it shipped with, so the rebrand
@@ -72,7 +70,7 @@ function iconSvg (color) {
 function textSvg (color) {
   const width = 100
   const height = round((width * WORD_BBOX.h) / WORD_BBOX.w)
-  return `<svg width="${width}" height="${height}" viewBox="0 0 ${round(WORD_BBOX.w)} ${round(WORD_BBOX.h)}" xmlns="http://www.w3.org/2000/svg"><g transform="translate(${round(-WORD_BBOX.x)},${round(-WORD_BBOX.y)})"><path d="${wordPath}" fill="${color}"/></g></svg>`
+  return `<svg width="${width}" height="${height}" viewBox="0 0 ${round(WORD_BBOX.w)} ${round(WORD_BBOX.h)}" xmlns="http://www.w3.org/2000/svg"><text x="0" y="92" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="110" fill="${color}">Malik-Tube</text></svg>`
 }
 
 let count = 0

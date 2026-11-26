@@ -203,13 +203,6 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <FtToggleSwitch
-          :label="t('Settings.Player Settings.Autoplay Videos')"
-          :compact="true"
-          :default-value="autoplayVideos"
-          setting-key="autoplayVideos"
-          @change="updateAutoplayVideos"
-        />
-        <FtToggleSwitch
           :label="t('Settings.Player Settings.Autoplay Playlists')"
           :compact="true"
           :default-value="autoplayPlaylists"
@@ -218,14 +211,6 @@
         />
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Play Next Video')"
-          :compact="true"
-          :disabled="hideRecommendedVideos"
-          :default-value="playNextVideo"
-          setting-key="playNextVideo"
-          @change="updatePlayNextVideo"
-        />
         <FtToggleSwitch
           :label="t('Settings.Player Settings.Skip Unavailable Playlist Videos')"
           :compact="true"
@@ -687,32 +672,6 @@
       />
     </FtFlexBox>
     <h4 class="groupTitle">
-      {{ t('Settings.Player Settings.Sections.Shorts') }}
-    </h4>
-    <div class="switchColumnGrid">
-      <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Use YouTube-style Shorts')"
-          :compact="true"
-          :default-value="useCustomShortsPlayer"
-          setting-key="useCustomShortsPlayer"
-          :tooltip="t('Tooltips.Player Settings.Use YouTube-style Shorts')"
-          @change="updateUseCustomShortsPlayer"
-        />
-      </div>
-      <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Loop Shorts')"
-          :compact="true"
-          :disabled="!useCustomShortsPlayer"
-          :default-value="loopShorts"
-          setting-key="loopShorts"
-          :tooltip="t('Tooltips.Player Settings.Loop Shorts')"
-          @change="updateLoopShorts"
-        />
-      </div>
-    </div>
-    <h4 class="groupTitle">
       {{ t('Settings.Player Settings.Sections.Screenshots') }}
     </h4>
     <FtFlexBox>
@@ -1164,19 +1123,6 @@ function updateSeekIntervalMultiplyByPlaybackRate(value) {
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const playNextVideo = computed(() => store.getters.getPlayNextVideo)
-
-/**
- * @param {boolean} value
- */
-function updatePlayNextVideo(value) {
-  store.dispatch('updatePlayNextVideo', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideRecommendedVideos = computed(() => store.getters.getHideRecommendedVideos)
-
-/** @type {import('vue').ComputedRef<boolean>} */
 const autoplayPlaylists = computed(() => store.getters.getAutoplayPlaylists)
 
 const skipUnavailablePlaylistVideos = computed(() => store.getters.getSkipUnavailablePlaylistVideos)
@@ -1190,36 +1136,6 @@ function updateAutoplayPlaylists(value) {
 
 function updateSkipUnavailablePlaylistVideos(value) {
   store.dispatch('updateSkipUnavailablePlaylistVideos', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const autoplayVideos = computed(() => store.getters.getAutoplayVideos)
-
-/**
- * @param {boolean} value
- */
-function updateAutoplayVideos(value) {
-  store.dispatch('updateAutoplayVideos', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const useCustomShortsPlayer = computed(() => store.getters.getUseCustomShortsPlayer)
-
-/**
- * @param {boolean} value
- */
-function updateUseCustomShortsPlayer(value) {
-  store.dispatch('updateUseCustomShortsPlayer', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const loopShorts = computed(() => store.getters.getLoopShorts)
-
-/**
- * @param {boolean} value
- */
-function updateLoopShorts(value) {
-  store.dispatch('updateLoopShorts', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

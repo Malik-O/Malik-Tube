@@ -59,20 +59,20 @@ App Menu:
   Previous Tab: Previous Tab
   Help: Help
 Close Confirmation:
-  Title: Quit OpenTubeX?
-  Message: Are you sure you want to quit OpenTubeX?
+  Title: Quit Malik-Tube?
+  Message: Are you sure you want to quit Malik-Tube?
   Background Sync Warning: Quitting will stop background subscription refreshes.
   Hide Window: Hide Window
   Quit: Quit
   Never Ask Again: Never ask again
 Older Version Changes:
   Title: Changes from an older version
-  Message: Changes you made in an older version of OpenTubeX were applied to your library.
+  Message: Changes you made in an older version of Malik-Tube were applied to your library.
   Detail: If an item was changed in both versions, the change from the older version was kept. A backup of your library from before is in your profile folder.
 Library Format Changed:
   Title: Library moved to a new format
   Message: Your library now uses a new storage format.
-  Detail: Older versions of OpenTubeX can still open your library, but they show it as it was before this update. Changes you make in an older version are added back when you return to this version.
+  Detail: Older versions of Malik-Tube can still open your library, but they show it as it was before this update. Changes you make in an older version are added back when you return to this version.
 Close Window Confirmation:
   Title: Close window?
   Message: This window contains {count} tabs. Are you sure you want to close it?
@@ -379,7 +379,7 @@ Subscriptions:
     Invalid Feed URL: Enter a web address that starts with http:// or https://.
     Feed Already Followed: You already follow this feed.
     Feed Could Not Be Loaded: The feed could not be loaded. Check that the address points to an RSS or Atom feed.
-    Feed Requires Browser Check: This site requires a browser check, which OpenTubeX can't complete. Try another address or RSSHub instance for this feed.
+    Feed Requires Browser Check: This site requires a browser check, which Malik-Tube can't complete. Try another address or RSSHub instance for this feed.
     Refresh Errors: 1 feed could not be refreshed. | {count} feeds could not be refreshed.
     Description: Add an RSS or Atom feed to follow creators from other platforms. {rssHub} instances provide feeds for many sites, such as Twitch.
     Empty Items: Your feeds currently do not have any items.
@@ -688,8 +688,8 @@ Settings:
   YouTube Account Settings:
     Watch Posted Comments: "Watch comments I post for replies"
     YouTube Account Settings: "YouTube Account"
-    Unofficial App Warning: "OpenTubeX is not an official YouTube app. Signing in links what you do here to your Google account, and Google can restrict or ban accounts that use unofficial apps. Only sign in with an account you can afford to lose."
-    Sign In Explanation: "OpenTubeX signs in like a TV app: you approve it on Google's website, and OpenTubeX never sees your password. The sign-in stays on this device and is not synced or backed up."
+    Unofficial App Warning: "Malik-Tube is not an official YouTube app. Signing in links what you do here to your Google account, and Google can restrict or ban accounts that use unofficial apps. Only sign in with an account you can afford to lose."
+    Sign In Explanation: "Malik-Tube signs in like a TV app: you approve it on Google's website, and Malik-Tube never sees your password. The sign-in stays on this device and is not synced or backed up."
     Sign In: "Sign in"
     Sign In Anyway: "Sign in anyway"
     Sign Out: "Sign out"
@@ -888,7 +888,7 @@ Settings:
     Check for Updates: Check for Updates
     Confirm Before: Confirm before…
     Confirmation Options:
-      Closing App: Closing OpenTubeX
+      Closing App: Closing Malik-Tube
       Closing Window: Closing a window with multiple tabs
       Closing Tabs: Closing multiple tabs
       Loading Tabs: Loading multiple tabs
@@ -898,7 +898,7 @@ Settings:
       on Failure
     Always Use Backup Media Server: Always use backup media server
     Enable Search Suggestions: Enable Search Suggestions
-    Open Deep Links In New Window: Open URLs Passed to OpenTubeX in a New Window
+    Open Deep Links In New Window: Open URLs Passed to Malik-Tube in a New Window
     Close Window With Last Tab: Close window when closing the last tab
     Remember Tab Navigation History: Remember Tab Navigation History
     Auto Load Next Page:
@@ -957,7 +957,7 @@ Settings:
       Local API: Local API
       Invidious API: Invidious API
       Yattee Server: "Yattee Server"
-      Local API Extension Required: The web app can only use the local API with the OpenTubeX Local API browser extension.
+      Local API Extension Required: The web app can only use the local API with the Malik-Tube Local API browser extension.
       Install Local API Extension: Install the extension
     Video View Type:
       Video View Type: Video View Type
@@ -1126,7 +1126,7 @@ Settings:
       Modal Backdrop: Dialog Background
       Dim and Blur: Dim and blur
       Dim Only: Dim only
-    Hide OpenTubeX Header Logo: Hide OpenTubeX Header Logo
+    Hide Malik-Tube Header Logo: Hide Malik-Tube Header Logo
     Base Theme:
       Material Light: "Material Light"
       Material Dark: "Material Dark"
@@ -1196,7 +1196,7 @@ Settings:
       Save and Apply: Save and apply
       Discard Changes: Discard changes
       Reset Colors: Reset to base theme
-      Theme File: OpenTubeX theme file
+      Theme File: Malik-Tube theme file
       Theme Saved: Custom theme saved and applied
       Theme Imported: Theme imported into the editor
       Theme Exported: Theme exported
@@ -1666,7 +1666,7 @@ Settings:
     Managed Tools Update Started Template: 'An update was found for {tools}. Downloading…'
     Managed Tools Update Finished Template: 'Finished updating {tools}'
     Managed Tools Update Available Template: 'An update is available for {tools}.'
-    Managed Tools Update Source Notice: OpenTubeX downloads it directly from GitHub, so F-Droid and other app stores do not check it.
+    Managed Tools Update Source Notice: Malik-Tube downloads it directly from GitHub, so F-Droid and other app stores do not check it.
     Update Managed Tools: Update
     Managed Tools Download Error Template: 'Could not download the managed tools: {errors}'
     Download Folder: Download Folder
@@ -1712,10 +1712,10 @@ Settings:
     yt-dlp Channel: yt-dlp Channel
     Sources:
       System: System (PATH or custom path)
-      Managed: Managed by OpenTubeX
+      Managed: Managed by Malik-Tube
     Detected Version Template: 'Detected yt-dlp version: {version}'
     Managed Not Downloaded: yt-dlp has not been downloaded yet. Click the button below to download it.
-    System yt-dlp Missing Warning: yt-dlp was not found on your system. Install it, set a custom path below, or switch the source to "Managed by OpenTubeX".
+    System yt-dlp Missing Warning: yt-dlp was not found on your system. Install it, set a custom path below, or switch the source to "Managed by Malik-Tube".
     Download yt-dlp: Download yt-dlp
     Update yt-dlp: Update yt-dlp
     Checking yt-dlp: Checking yt-dlp…
@@ -1726,14 +1726,14 @@ Settings:
     Detected FFmpeg Version Template: 'Detected FFmpeg version: {version}'
     Detected FFmpeg and FFprobe Version Template: 'Detected FFmpeg/FFprobe version: {version}'
     FFmpeg Managed Not Downloaded: FFmpeg has not been downloaded yet. Click the button below to download it.
-    System FFmpeg Missing Warning: FFmpeg was not found on your system. It is required for merging video and audio and for audio conversion. Install it, set a custom path below, or switch the source to "Managed by OpenTubeX".
+    System FFmpeg Missing Warning: FFmpeg was not found on your system. It is required for merging video and audio and for audio conversion. Install it, set a custom path below, or switch the source to "Managed by Malik-Tube".
     Download FFmpeg: Download FFmpeg
     Update FFmpeg: Update FFmpeg
     Checking FFmpeg: Checking FFmpeg…
     Downloading FFmpeg: Downloading FFmpeg…
     Detected FFprobe Version Template: 'Detected FFprobe version: {version}'
     FFprobe Managed Not Downloaded: FFprobe has not been downloaded yet. Click the button below to download it with FFmpeg.
-    System FFprobe Missing Warning: FFprobe was not found on your system. It is required for inspecting media during post-processing. Install it next to FFmpeg, or switch the source to "Managed by OpenTubeX".
+    System FFprobe Missing Warning: FFprobe was not found on your system. It is required for inspecting media during post-processing. Install it next to FFmpeg, or switch the source to "Managed by Malik-Tube".
     Checking FFprobe: Checking FFprobe…
     Download FFmpeg and FFprobe: Download FFmpeg and FFprobe
     Update FFmpeg and FFprobe: Update FFmpeg and FFprobe
@@ -1773,7 +1773,7 @@ Settings:
       Playback: Playback
       Downloads: Downloads
       Subtitles: Subtitles
-    Restricted Playback Authentication Hint: By default, OpenTubeX only passes these cookies to yt-dlp after you choose "Try with configured cookies" on an age-restricted or members-only video.
+    Restricted Playback Authentication Hint: By default, Malik-Tube only passes these cookies to yt-dlp after you choose "Try with configured cookies" on an age-restricted or members-only video.
     Restricted Playback Authentication Warning: Using yt-dlp with a Google account can lead to temporary or permanent account restrictions.
   Privacy Settings:
     Internet Connectivity Checks: "Internet connectivity checks"
@@ -1849,24 +1849,24 @@ Settings:
     Browser Runtime Data: Browser runtime data
     Browser Runtime Data Hint: Chromium’s session and local storage, cookies, privacy and network state, and crash files.
     Subscription Feed Cache: Subscription and feed cache
-    Subscription Feed Cache Description: Stores fetched subscription videos, Shorts, live streams, and posts. OpenTubeX recreates it on the next feed refresh.
+    Subscription Feed Cache Description: Stores fetched subscription videos, Shorts, live streams, and posts. Malik-Tube recreates it on the next feed refresh.
     Clear Subscription Feed Cache: Clear subscription and feed cache
     Clear Subscription Feed Cache Confirmation: Clear the subscription and feed cache?
     Subscription Feed Cache Effect: Subscription feeds may appear empty until they refresh. Your subscriptions and profiles will not be changed.
     Session Search Cache: Session search cache
     In Memory: In memory
-    Session Search Cache Description: '{count} search is cached in memory for faster back navigation. This cache is discarded when OpenTubeX closes. | {count} searches are cached in memory for faster back navigation. This cache is discarded when OpenTubeX closes.'
+    Session Search Cache Description: '{count} search is cached in memory for faster back navigation. This cache is discarded when Malik-Tube closes. | {count} searches are cached in memory for faster back navigation. This cache is discarded when Malik-Tube closes.'
     Clear Session Search Cache: Clear session search cache
     Clear Session Search Cache Confirmation: Clear the session search cache?
     Session Search Cache Effect: Cached result pages will be discarded. Saved search history will not be changed.
     HTTP Cache: HTTP cache
-    HTTP Cache Description: Electron stores network responses on disk so repeated requests can load without downloading the same data again. OpenTubeX recreates this cache as needed.
+    HTTP Cache Description: Electron stores network responses on disk so repeated requests can load without downloading the same data again. Malik-Tube recreates this cache as needed.
     Managed By Electron: Managed by Electron
     Clear HTTP Cache: Clear HTTP cache
     Clear HTTP Cache Confirmation: Clear Electron's HTTP cache?
     HTTP Cache Effect: Images and other network resources may load more slowly once while the cache is rebuilt.
     Tab Image Cache: Tab thumbnails and channel avatars
-    Tab Image Cache Description: Stores preview images and channel avatars for open and restored tabs. OpenTubeX recreates them while tabs are used.
+    Tab Image Cache Description: Stores preview images and channel avatars for open and restored tabs. Malik-Tube recreates them while tabs are used.
     Clear Tab Image Cache: Clear tab image cache
     Clear Tab Image Cache Confirmation: Clear tab thumbnails and channel avatars?
     Tab Image Cache Effect: Tab images may disappear briefly and will be recreated as their tabs are used.
@@ -1894,7 +1894,7 @@ Settings:
     Search History Effect: Saved search suggestions from your previous searches will disappear. The current session cache will remain.
     Other User Data: Other user data
     Other Profile Files: Other profile files
-    Other Profile Files Hint: Backups, temporary files, and profile entries OpenTubeX does not recognize yet.
+    Other Profile Files Hint: Backups, temporary files, and profile entries Malik-Tube does not recognize yet.
     Subscriptions And Profiles: Subscriptions and profiles
     Subscriptions And Profiles Description: Stores subscribed channels, profile names, and profile membership.
     Subscriptions And Profiles Effect: All subscriptions and extra profiles will be deleted permanently. Feed cache data will also be cleared.
@@ -2045,7 +2045,7 @@ Settings:
     Remove: Remove
   Data Settings:
     Scheduled backups: "Scheduled backups"
-    Scheduled backup description: "Save complete ZIP backups while OpenTubeX is open. Missed backups run on startup. The limit applies only to scheduled backups in this folder."
+    Scheduled backup description: "Save complete ZIP backups while Malik-Tube is open. Missed backups run on startup. The limit applies only to scheduled backups in this folder."
     Choose backup folder: "Choose backup folder"
     No backup folder selected: "No backup folder selected"
     Enable scheduled backups: "Enable scheduled backups"
@@ -2100,7 +2100,7 @@ Settings:
     Search history file: Search history file
     Settings File: Settings File
     Export Subscriptions: Export Subscriptions
-    Export OpenTubeX: Export OpenTubeX
+    Export Malik-Tube: Export Malik-Tube
     Export YouTube: Export YouTube
     Export NewPipe: Export NewPipe
     Import History: Import History
@@ -2152,11 +2152,11 @@ Settings:
     Unknown setting key: 'Unknown setting key: {key}'
     Non-transferable setting key: 'Non-transferable setting key: {key}'
     How do I import my subscriptions?: How do I import my subscriptions?
-    Import subscriptions formats: 'Supported formats: OpenTubeX / FreeTube (.db), YouTube Takeout (.csv, .json, .opml), NewPipe (.json), LibreTube backup or FreeTube export (.json)'
+    Import subscriptions formats: 'Supported formats: Malik-Tube / FreeTube (.db), YouTube Takeout (.csv, .json, .opml), NewPipe (.json), LibreTube backup or FreeTube export (.json)'
     Import subscription groups hint: 'To sort channels into groups, add a column after the channel title in a .csv file with group names separated by semicolons, or import an .opml file with folders. Missing groups are created.'
-    Import history formats: 'Supported formats: OpenTubeX / FreeTube (.db), YouTube Takeout (.json), LibreTube backup (.json)'
-    Import playlists formats: 'Supported formats: OpenTubeX / FreeTube (.db), YouTube Takeout (.csv)'
-    Import search history formats: 'Supported formats: OpenTubeX / FreeTube (.db), YouTube Takeout (.json)'
+    Import history formats: 'Supported formats: Malik-Tube / FreeTube (.db), YouTube Takeout (.json), LibreTube backup (.json)'
+    Import playlists formats: 'Supported formats: Malik-Tube / FreeTube (.db), YouTube Takeout (.csv)'
+    Import search history formats: 'Supported formats: Malik-Tube / FreeTube (.db), YouTube Takeout (.json)'
     Channel playback speeds: Channel playback speeds
     Import channel playback speeds: Import channel playback speeds
     Channel playback speeds file: Channel playback speeds file
@@ -2209,7 +2209,7 @@ Settings:
     Privacy Policy: Privacy policy for this server
     Enhanced Privacy Enabled: Enhanced privacy is enabled. The server stores only encrypted sync data.
     Enhanced Privacy Unsupported: Warning — this server does not support enhanced privacy. Synced data is visible to its operator.
-    Description: Synchronize subscriptions, profiles, playlists, watch history, and supported settings with an OpenTubeX or LibreTube sync server. LibreTube servers may not support every sync feature.
+    Description: Synchronize subscriptions, profiles, playlists, watch history, and supported settings with an Malik-Tube or LibreTube sync server. LibreTube servers may not support every sync feature.
     Server URL: Sync server URL
     Checking Server: Checking sync server…
     Server Unavailable: Unable to connect to this sync server. Check the URL and try again.
@@ -2218,7 +2218,7 @@ Settings:
     Register: Register
     Log In with Provider: 'Log in with {provider}'
     Log In with Single Sign-On: Log in with single sign-on
-    Continue in Browser: Continue in your browser. OpenTubeX resumes when you are done.
+    Continue in Browser: Continue in your browser. Malik-Tube resumes when you are done.
     Pair Another Device: Pair another device
     Pair With Existing Device: Pair with an existing device
     Device Name: Device name
@@ -2253,7 +2253,7 @@ Settings:
     Approve Pairing: Approve pairing
     Try Again: Try again
     Scan Again: Scan again
-    Camera Unavailable: OpenTubeX could not access a camera. Check the camera permission or enter the pairing code manually.
+    Camera Unavailable: Malik-Tube could not access a camera. Check the camera permission or enter the pairing code manually.
     Pairing Unsupported: This sync server does not support secure device pairing.
     Pairing Failed: Device pairing failed. Try again with a new code.
     Pairing Request Changed: The pairing request changed, expired, or was already used. Create a new code.
@@ -2275,7 +2275,7 @@ Settings:
     Disconnect: Disconnect
     Delete Account: Delete sync account
     Delete Account Confirmation: Delete sync account?
-    Delete Account Warning: This permanently deletes your sync account and all data stored on this server. Your local OpenTubeX data will not be deleted.
+    Delete Account Warning: This permanently deletes your sync account and all data stored on this server. Your local Malik-Tube data will not be deleted.
     Confirm Delete Account: Delete account
     Delete Single Sign-On Account Hint: Your browser opens so that you can confirm the deletion with your sign-in provider.
     Password Required: Password is required
@@ -2350,7 +2350,7 @@ Settings:
     Signed Out After Restore: Sync was signed out because this app data was restored from a backup or another device. Sign in again to sync this device.
   Proxy Settings:
     Proxy Settings: Proxy
-    Proxy Warning: OpenTubeX doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is configured properly, or OpenTubeX won't be able to fetch any data.
+    Proxy Warning: Malik-Tube doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is configured properly, or Malik-Tube won't be able to fetch any data.
     Enable Tor / Proxy: Enable Tor / Proxy
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
@@ -2426,7 +2426,7 @@ Settings:
     Disable Hardware Acceleration: Disable Hardware Acceleration
   Diagnostics:
     Diagnostics: Diagnostics
-    Description: While diagnostic logging is on, OpenTubeX keeps recent log messages in memory so you can attach them to bug reports. It never saves or sends them on its own, and turning logging off deletes them. Reports leave out cookies, tokens, IP addresses and URL parameters, but they can include IDs of videos you played, so check a report before you share it.
+    Description: While diagnostic logging is on, Malik-Tube keeps recent log messages in memory so you can attach them to bug reports. It never saves or sends them on its own, and turning logging off deletes them. Reports leave out cookies, tokens, IP addresses and URL parameters, but they can include IDs of videos you played, so check a report before you share it.
     Enable Logging: Enable diagnostic logging
     Copy Report: Copy report
     Save Report: Save report
@@ -2458,7 +2458,7 @@ Tutorial:
   Finish: Finish
   Done: Done
   Welcome:
-    Title: Welcome to OpenTubeX
+    Title: Welcome to Malik-Tube
     Description: Start fresh, or bring your subscriptions, history, and playlists from another app or a backup.
     Start Fresh: Start fresh
     Import Data: Import data
@@ -2467,7 +2467,7 @@ Tutorial:
     Description: Choose your theme, start page, and region. You can change these and more in Settings at any time.
   Playback:
     Title: Playback and privacy
-    Description: Choose how videos play, whether OpenTubeX remembers what you watch, and which community add-ons it uses.
+    Description: Choose how videos play, whether Malik-Tube remembers what you watch, and which community add-ons it uses.
   Navigation:
     Title: Your library is always nearby
     Description: Use the navigation to reach subscriptions, playlists, history, and more.
@@ -2497,7 +2497,7 @@ About:
   GitHub releases: GitHub Releases
   Help: Help
   Documentation: Documentation
-  OpenTubeX Wiki: OpenTubeX Wiki
+  Malik-Tube Wiki: Malik-Tube Wiki
   FAQ: FAQ
   Discussions: Discussions
   Matrix: Matrix
@@ -2513,7 +2513,7 @@ About:
   room rules: room rules
   Translate: Translate
   Credits: Credits
-  OpenTubeX is made possible by {creditsPageLink}: OpenTubeX is made possible by {creditsPageLink}
+  Malik-Tube is made possible by {creditsPageLink}: Malik-Tube is made possible by {creditsPageLink}
   these people and projects: these people and projects
   Donate: Donate
 
@@ -2639,7 +2639,7 @@ Channel:
     results
   This channel does not exist: This channel does not exist
   This channel does not allow searching: This channel does not allow searching
-  This channel is age-restricted and currently cannot be viewed in OpenTubeX.: This channel is age-restricted and currently cannot be viewed in OpenTubeX.
+  This channel is age-restricted and currently cannot be viewed in Malik-Tube.: This channel is age-restricted and currently cannot be viewed in Malik-Tube.
   Channel Tabs: Channel Tabs
   Hide Watched: Hide Watched
   All Videos Watched: "You've watched all of these videos. Turn off Hide Watched to show them."
@@ -2699,8 +2699,8 @@ Channel:
     View Full Post: View Full Post
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
-    Members-only video hidden by OpenTubeX: Members-only video hidden by OpenTubeX
-    Video hidden by OpenTubeX because of its title: Video hidden by OpenTubeX because its title contains hidden text
+    Members-only video hidden by Malik-Tube: Members-only video hidden by Malik-Tube
+    Video hidden by Malik-Tube because of its title: Video hidden by Malik-Tube because its title contains hidden text
     Original post unavailable: Original post unavailable
     Correct: "Correct"
     Incorrect: "Incorrect"
@@ -2764,8 +2764,8 @@ Video:
   Configure Restricted Playback Cookies Hint: "Configure cookies in Settings → Advanced → External Software → yt-dlp Cookies."
   Try With Configured Cookies: Try with configured cookies
   Restricted Playback Authentication Failed Template: 'yt-dlp could not access this video with the configured cookies: {error}'
-  DRMProtected: DRM protected videos cannot be played in OpenTubeX, as they require proprietary, closed source components. If you want to watch this video please watch it on the official YouTube website in a DRM enabled web browser.
-  External DRM Protected: DRM protected videos cannot be played in OpenTubeX, as they require proprietary, closed source components.
+  DRMProtected: DRM protected videos cannot be played in Malik-Tube, as they require proprietary, closed source components. If you want to watch this video please watch it on the official YouTube website in a DRM enabled web browser.
+  External DRM Protected: DRM protected videos cannot be played in Malik-Tube, as they require proprietary, closed source components.
   Invalid Media URL: Invalid media URL
   External Media:
     Open Local Network Link: "Open {url}? This link points to this computer or your local network."
@@ -2793,7 +2793,7 @@ Video:
       subscriber_only: Subscribers only
       needs_auth: Sign-in required
       unlisted: Unlisted
-  Private: Private videos cannot be watched in OpenTubeX as they require Google login and ownership of the video.
+  Private: Private videos cannot be watched in Malik-Tube as they require Google login and ownership of the video.
   More Options: More Options
   Mark As Watched: Mark As Watched
   Unmark As Watched: Unmark As Watched
@@ -3527,14 +3527,14 @@ Tooltips:
     YouTube Watch History: "Whether YouTube saves the videos you watch with this channel, on every device. Turning this off pauses the watch history on YouTube."
     Rate Videos: "Shows like and dislike buttons on videos and posts. To show your rating, each video you open is looked up on YouTube with your account, so YouTube learns which videos you open, even when they are not added to your watch history. Ratings of posts are not looked up, so only the ones you make here show."
   General Settings:
-    Reply Notifications: "OpenTubeX checks the comments you watch for new replies, and tells you when a creator hearts one of yours. A comment stays watched until 30 days pass without new replies, hearts, or you opening it. Up to 50 comments stay watched, so watching more stops watching the ones inactive the longest. Watch any comment with the bell button next to it."
+    Reply Notifications: "Malik-Tube checks the comments you watch for new replies, and tells you when a creator hearts one of yours. A comment stays watched until 30 days pass without new replies, hearts, or you opening it. Up to 50 comments stay watched, so watching more stops watching the ones inactive the longest. Watch any comment with the bell button next to it."
     Preferred Video Codec: |
       Auto prefers codecs that your device can decode in hardware.
       AV1: the best quality for the least data, but not every video has it. Without hardware decoding, it can drain the battery or drop frames.
       VP9: a balance of efficiency and compatibility, usually available up to the highest resolution.
       H.264: the easiest to decode on almost any device, but it uses more data and usually stops at 1080p.
       Changes apply to the next video. If the preferred codec is unavailable, another one is used.
-    Yattee Server: "The yattee-server instance that OpenTubeX loads videos, channels, playlists and search results from. The username and password are only stored on this device."
+    Yattee Server: "The yattee-server instance that Malik-Tube loads videos, channels, playlists and search results from. The username and password are only stored on this device."
     Proxy Videos Through Yattee Server: "Relays video and audio streams through the server. Leave this on unless the server shares your internet connection, because YouTube only serves streams to the address that requested them. Thumbnails always load directly from YouTube."
     Enable Tabs: "Keeps the current page open. Other tabs are kept until the app restarts; enable tabs again to restore them."
     Data Saver Thumbnails: "Use lower-resolution thumbnails to reduce data usage."
@@ -3543,7 +3543,7 @@ Tooltips:
     Use AI Translation Completions: Fill gaps in human translations with AI-generated text. Human translations always take priority.
     Automatically switch stream extraction methods: Try yt-dlp if built-in playback fails, or built-in playback if yt-dlp fails.
     Stream Extraction Method: |
-      Choose how OpenTubeX obtains video streams. yt-dlp must be available when selected.
+      Choose how Malik-Tube obtains video streams. yt-dlp must be available when selected.
       Videos may take longer to start when using yt-dlp.
     Built-in Streams: |
       Automatic plays most videos through YouTube's visionOS client, which starts faster and supports automatic quality. Live streams and videos it can't play use SABR.
@@ -3553,43 +3553,43 @@ Tooltips:
       Entire App also shows channel names and descriptions in their original language.
       Too many requests, such as fetching video titles across lists, may temporarily
       impact app reliability.
-    Preferred API Backend: Choose the backend that OpenTubeX uses to obtain data. The
+    Preferred API Backend: Choose the backend that Malik-Tube uses to obtain data. The
       local API is a built-in extractor. The Invidious API requires an Invidious server
       to connect to.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
-      OpenTubeX will automatically attempt to use your non-preferred API as a fallback
+      Malik-Tube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
     Always Use Backup Media Server: Streams videos from the backup server YouTube names
       instead of the assigned one, for example when your internet provider's cache is
-      often slow. Otherwise OpenTubeX switches only when the assigned server doesn't
+      often slow. Otherwise Malik-Tube switches only when the assigned server doesn't
       respond.
-    Thumbnail Preference: All thumbnails throughout OpenTubeX will be replaced with
+    Thumbnail Preference: All thumbnails throughout Malik-Tube will be replaced with
       a frame of the video, blurred or hidden instead of the default thumbnail.
     Show Thumbnail Previews: Show animated previews when hovering over video thumbnails.
     Startup Behavior: |
-      Choose what OpenTubeX does when it starts.
+      Choose what Malik-Tube does when it starts.
       Load all tabs restores every saved tab immediately, but background tabs will not autoplay videos.
-      Load previously loaded tabs reloads the tabs that were loaded when OpenTubeX closed and keeps the others unloaded.
+      Load previously loaded tabs reloads the tabs that were loaded when Malik-Tube closed and keeps the others unloaded.
       Load last active tab restores the previous session with the other tabs opened but unloaded; they load when you click them.
       Start with an empty session skips the saved tabs and opens a fresh window.
-    Invidious Instance: The Invidious instance that OpenTubeX will connect to for API
+    Invidious Instance: The Invidious instance that Malik-Tube will connect to for API
       calls. Changes to this setting apply only to the current window unless you set
       this instance as the default.
     Invidious Instance Credentials: "Only needed if the instance asks for a username and password. They are only stored on this device and only sent to this instance."
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed.
     External Link Handling: |
-      Choose the default behavior when a link, which cannot be opened in OpenTubeX, is clicked.
-      By default OpenTubeX will open the clicked link in your default browser.
-    Open Deep Links In New Window: URLs passed to OpenTubeX, such as by redirect
+      Choose the default behavior when a link, which cannot be opened in Malik-Tube, is clicked.
+      By default Malik-Tube will open the clicked link in your default browser.
+    Open Deep Links In New Window: URLs passed to Malik-Tube, such as by redirect
       browser extensions or command line arguments, are opened in a new window.
     Close Window With Last Tab: When off, closing the last tab opens a new tab instead,
       so the window stays open until you close it.
     Remember Tab Navigation History: Each tab's back and forward navigation history
-      is saved and restored when OpenTubeX restarts.
-    Notifications: Choose how OpenTubeX notifies you about live streams, new uploads, and automatic downloads. With System and in-app, notifications appear inside OpenTubeX while you use it and as system notifications otherwise, and the bell keeps them. Off also hides the notification options.
+      is saved and restored when Malik-Tube restarts.
+    Notifications: Choose how Malik-Tube notifies you about live streams, new uploads, and automatic downloads. With System and in-app, notifications appear inside Malik-Tube while you use it and as system notifications otherwise, and the bell keeps them. Off also hides the notification options.
   Proxy Settings:
-    IP Block Recovery Script Path: Script file path to run when an IP block is detected. OpenTubeX waits for it to finish, then reloads the video. If fallback is enabled, it runs only when fallback also fails.
+    IP Block Recovery Script Path: Script file path to run when an IP block is detected. Malik-Tube waits for it to finish, then reloads the video. If fallback is enabled, it runs only when fallback also fails.
   Player Settings:
     Enable Timestamp Notes: Adds a player button and the N shortcut that pause the video and open a note linking to the current moment. Notes can be copied as Markdown or, on desktop, added to Obsidian.
     Obsidian Vault: Name of the Obsidian vault for timestamp notes. When set, notes can be added to Obsidian. The notes of each video are collected in a note named after the video, in the vault's folder for new notes.
@@ -3636,7 +3636,7 @@ Tooltips:
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail. Warning, Invidious settings do not affect external players.
-    Custom External Player Executable: By default, OpenTubeX will assume that the chosen external
+    Custom External Player Executable: By default, Malik-Tube will assume that the chosen external
       player can be found via the PATH environment variable. If needed, a custom path can
       be set here.
     Ignore Warnings: Suppress warnings for when the current external player does not support
@@ -3652,22 +3652,22 @@ Tooltips:
     Concurrent Downloads: The maximum number of yt-dlp jobs that may run at once.
     Bandwidth Limit: Caps the queue's combined transfer rate by dividing this limit between concurrent jobs. Enter 0 for no limit.
   External Software Settings:
-    yt-dlp Source: OpenTubeX can either use the yt-dlp installed on your system or download
+    yt-dlp Source: Malik-Tube can either use the yt-dlp installed on your system or download
       and manage its own copy of yt-dlp, which is stored in the user data directory.
-    yt-dlp Channel: Select which yt-dlp release channel OpenTubeX downloads and manages.
+    yt-dlp Channel: Select which yt-dlp release channel Malik-Tube downloads and manages.
       Stable is recommended for most users.
-    FFmpeg Source: OpenTubeX can either use FFmpeg and FFprobe installed on your system or
+    FFmpeg Source: Malik-Tube can either use FFmpeg and FFprobe installed on your system or
       download and manage its own static builds, which are stored in the user data directory.
     Managed Tool Updates: Choose whether managed tools update automatically, ask before updating, or only update through the manual buttons. Missing tools are still downloaded when required.
-    yt-dlp Executable Path: By default, OpenTubeX will assume that yt-dlp can be found via
+    yt-dlp Executable Path: By default, Malik-Tube will assume that yt-dlp can be found via
       the PATH environment variable. If needed, a custom path can be set here.
     Cookie Source: Choose whether yt-dlp should read a Netscape cookie file or cookies from an installed browser for authenticated playback.
     Cookie File: Select a Netscape-formatted cookie file for authenticated playback.
-    Browser for Cookies: Browser support is read from the selected yt-dlp executable. OpenTubeX asks yt-dlp to read this browser when authenticated playback is requested.
+    Browser for Cookies: Browser support is read from the selected yt-dlp executable. Malik-Tube asks yt-dlp to read this browser when authenticated playback is requested.
     Browser Profile: Optional browser profile name or folder. Leave blank to use the most recently accessed profile.
     Use Cookies For: "Choose what yt-dlp uses the configured cookies for. Playback uses them whenever yt-dlp extracts streams, without switching the stream extraction method to yt-dlp. With yt-dlp selected, account-only formats may become available, including YouTube Premium's enhanced bitrate when the account has access. Subtitles also covers automatic translations."
     FFmpeg Executable Path: FFmpeg is required for merging separate video and audio streams
-      and for audio conversion. By default, OpenTubeX will assume that FFmpeg can be found
+      and for audio conversion. By default, Malik-Tube will assume that FFmpeg can be found
       via the PATH environment variable. If needed, a custom path can be set here.
   Distraction Free Settings:
     Count Watch Time From: "All devices counts every device that syncs watch statistics. This device counts only what you watch here."
@@ -3683,27 +3683,27 @@ Tooltips:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
-    Hide Videos, Playlists and Channels Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos, playlists and channels whose original titles contain it throughout all of OpenTubeX, excluding only History, Your Playlists, and videos inside of playlists.
+    Hide Videos, Playlists and Channels Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos, playlists and channels whose original titles contain it throughout all of Malik-Tube, excluding only History, Your Playlists, and videos inside of playlists.
     Hide Videos on Watch: 'Hides watched videos from the Videos, Shorts, and Live tabs on the Subscription and Channel pages. This does not affect the Home tab on Channel pages'
     Hide Watched in Search and Recommendations: Hides watched videos from search results, Up Next on the watch page, and YouTube recommendations on Home. Autoplay skips them as well.
     Hide Playlist Stats: Hides the video count, view count, last updated date and total duration on playlist pages.
   Subscription Settings:
-    Fetch Feeds from RSS: When enabled, OpenTubeX will use RSS instead of its default
+    Fetch Feeds from RSS: When enabled, Malik-Tube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration, live status or posts
-    Fetch Feed on Startup: When enabled, OpenTubeX will automatically fetch
+    Fetch Feed on Startup: When enabled, Malik-Tube will automatically fetch
       your subscription feed on startup and when a new window is opened.
     Show New Content Feed: Shows a New tab containing subscription feed items that were not present during the previous fetch.
     Enable RSS Feeds: Shows an RSS tab on the Subscriptions page with the items of RSS or Atom feeds, so you can follow creators on other platforms. Its items open with yt-dlp.
     Show New Content Indicators: Shows a small dot beside subscription feed items that were not present during the previous fetch.
     Show Scheduled Live Streams / Premieres First: Keeps upcoming live streams and premieres at the top of the subscription feed. When disabled, they remain at their announcement position until they start. Refresh the subscription feed once after disabling to retrieve announcement dates for existing scheduled entries.
-    Auto Refresh Interval: "How often OpenTubeX automatically refreshes your subscription feed while the app is open. On Android, a nonzero interval also refreshes it while the app is closed."
-    RSS Feeds Auto Refresh Interval: How often OpenTubeX automatically refreshes your RSS feeds while the app is open.
-    Platforms Auto Refresh Interval: How often OpenTubeX automatically refreshes the channels you follow on other platforms while the app is open.
+    Auto Refresh Interval: "How often Malik-Tube automatically refreshes your subscription feed while the app is open. On Android, a nonzero interval also refreshes it while the app is closed."
+    RSS Feeds Auto Refresh Interval: How often Malik-Tube automatically refreshes your RSS feeds while the app is open.
+    Platforms Auto Refresh Interval: How often Malik-Tube automatically refreshes the channels you follow on other platforms while the app is open.
     Enable Twitch Page: Lets you open the Twitch page from the navigation and the command palette. There you can browse popular categories and live channels and search Twitch.
-    Twitch Notify When Live: Notifies you when one of your followed Twitch channels starts streaming. OpenTubeX checks every few minutes while it is open, and also while it is closed if it refreshes subscriptions then.
-    Refresh Subscriptions While App Is Closed: "Refreshes feeds using your selected settings. On desktop, OpenTubeX stays in the system tray until you quit. Android controls when background refreshes run."
-    Notify About New Uploads: "Shows system notifications on this device for channels whose notifications you turned on in their subscription settings. OpenTubeX checks for new content when subscriptions refresh, so choose an auto refresh interval. To be notified while the app is closed, also enable refreshing while the app is closed."
+    Twitch Notify When Live: Notifies you when one of your followed Twitch channels starts streaming. Malik-Tube checks every few minutes while it is open, and also while it is closed if it refreshes subscriptions then.
+    Refresh Subscriptions While App Is Closed: "Refreshes feeds using your selected settings. On desktop, Malik-Tube stays in the system tray until you quit. Android controls when background refreshes run."
+    Notify About New Uploads: "Shows system notifications on this device for channels whose notifications you turned on in their subscription settings. Malik-Tube checks for new content when subscriptions refresh, so choose an auto refresh interval. To be notified while the app is closed, also enable refreshing while the app is closed."
     Refresh These Feeds Together: When you refresh one of the checked feeds, the other checked feeds refresh right after it. Automatic refreshes still follow each feed's own interval.
     Faster Subscription Refresh: Checks each channel's RSS feed first and only loads the videos, Shorts and live streams of channels with new uploads. Automatic refreshes also skip channels loaded in the last 10 minutes. For channels without new uploads, view counts, removed videos and changed titles only update every few hours, and new uploads may appear later when the RSS feed lags behind. Not available with the Invidious API.
     Show Collaborations From Other Channels: Also shows videos that channels you subscribe to made together with another channel that uploaded them. YouTube only lists these on a channel's Home tab, so a video refresh checks at most a few channels, and new ones can take a day or more to appear. Only the latest collaborations shown there are found, some channels don't show any, and their publication dates are approximate. Not available with the Invidious API.
@@ -3738,7 +3738,7 @@ Yattee Server:
   Errors:
     Invalid credentials: "The Yattee server rejected the username or password. Check them in Settings → Advanced."
     Rate limited: "The Yattee server is blocking sign-ins after too many failed attempts. Try again later."
-    Streams not relayed: "The Yattee server did not relay the streams of this video. While videos are proxied through the server, OpenTubeX does not connect to YouTube directly."
+    Streams not relayed: "The Yattee server did not relay the streams of this video. While videos are proxied through the server, Malik-Tube does not connect to YouTube directly."
     Not configured: "Enter the URL of your Yattee server in Settings → Advanced."
     HTTPS required: "Android can only play videos from Yattee servers that use HTTPS."
     Streams unavailable: "Could not load the streams of this video from the Yattee server. Use Test Connection in Settings → Advanced to check the server."
@@ -4090,12 +4090,12 @@ App Icon:
   Title: "App icon"
   Error: "Unable to load or change the app icon"
   Running Only Hint: "Applies to open windows. Your dock, panel, or launcher may keep showing the original icon."
-  Windows Hint: "Also changes OpenTubeX shortcuts. Pinned taskbar icons update after you sign out or restart Windows."
+  Windows Hint: "Also changes Malik-Tube shortcuts. Pinned taskbar icons update after you sign out or restart Windows."
 
 App Lock:
   Title: "App lock"
   Enable: "Require screen lock"
-  Enable Tooltip: "Asks for your fingerprint, face, PIN, pattern, or password when you return to OpenTubeX. On Android 13 and later, recent apps also stop showing a preview of the app."
+  Enable Tooltip: "Asks for your fingerprint, face, PIN, pattern, or password when you return to Malik-Tube. On Android 13 and later, recent apps also stop showing a preview of the app."
   Lock After: "Lock after"
   Immediately: "Immediately"
   1 Minute: "1 minute"
@@ -4104,9 +4104,9 @@ App Lock:
   1 Hour: "1 hour"
   Unavailable: "Set a screen lock in Android settings to use app lock."
   Error: "Unable to change app lock"
-  Locked: "OpenTubeX is locked"
+  Locked: "Malik-Tube is locked"
   Unlock: "Unlock"
-  Prompt Title: "Unlock OpenTubeX"
+  Prompt Title: "Unlock Malik-Tube"
 
 Tray:
   Hide All Windows: "Hide All Windows"
@@ -4152,11 +4152,11 @@ Form Inputs:
 Storage Startup Error:
   Title: "Could not load app data"
   Message: "Free up device storage and try again. Sync is paused until your data is loaded."
-  Web Message: "If OpenTubeX is open in another tab, close it and try again."
-  Insecure Web Message: "OpenTubeX can only store your data when it is opened over HTTPS or on localhost. Open this address with https:// instead."
+  Web Message: "If Malik-Tube is open in another tab, close it and try again."
+  Insecure Web Message: "Malik-Tube can only store your data when it is opened over HTTPS or on localhost. Open this address with https:// instead."
   Retry: "Retry"
-  In Use Title: "OpenTubeX is open in another tab"
-  In Use Message: "OpenTubeX can only be used in one tab at a time. Using it here closes it in the other tab."
+  In Use Title: "Malik-Tube is open in another tab"
+  In Use Message: "Malik-Tube can only be used in one tab at a time. Using it here closes it in the other tab."
   Use Here: "Use here"
 Native Permissions:
   Local Network Denied: "Nearby devices permission was denied."

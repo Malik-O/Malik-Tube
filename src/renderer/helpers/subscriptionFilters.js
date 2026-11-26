@@ -48,7 +48,6 @@ export function isUpcomingPremiere(video, now = Date.now()) {
 /**
  * @param {object} video
  * @param {{
- *  hideLiveStreams?: boolean,
  *  hideUpcomingPremieres?: boolean,
  *  hideChannelsBasedOnText?: boolean,
  *  hiddenChannelNames?: Set<string>,
@@ -58,7 +57,6 @@ export function isUpcomingPremiere(video, now = Date.now()) {
  * }} preferences
  */
 export function isVideoHiddenByPreferences(video, {
-  hideLiveStreams = false,
   hideUpcomingPremieres = false,
   hideChannelsBasedOnText = true,
   hiddenChannelNames = new Set(),
@@ -66,7 +64,7 @@ export function isVideoHiddenByPreferences(video, {
   forbiddenTitles = [],
   membersOnlyChannelIds = null
 } = {}) {
-  if (hideLiveStreams && (video.liveNow || video.isUpcoming)) {
+  if (video.isShort || video.liveNow || video.isUpcoming) {
     return true
   }
 
@@ -116,11 +114,9 @@ export function isVideoHiddenByPreferences(video, {
 export function updateVideoListAfterProcessing(videos, now = Date.now()) {
   let videoList = videos.map(video => updateUpcomingPremiereState(video, now))
 
-  if (store.getters.getHideLiveStreams) {
-    videoList = videoList.filter(item => {
-      return (!item.liveNow && !item.isUpcoming)
-    })
-  }
+  videoList = videoList.filter(item => {
+    return (!item.liveNow && !item.isUpcoming)
+  })
 
   if (store.getters.getHideUpcomingPremieres) {
     videoList = videoList.filter(item => !isUpcomingPremiere(item, now))

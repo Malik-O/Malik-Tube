@@ -4,10 +4,7 @@ export const NAVIGATION_ITEM_DEFINITIONS = Object.freeze([
   { id: 'userplaylists', labelKey: 'Playlists', icon: ['far', 'bookmark'] },
   { id: 'history', labelKey: 'History.History', icon: ['fas', 'clock-rotate-left'] },
   { id: 'subscribedchannels', labelKey: 'Channels.Channels', icon: ['fas', 'user-check'] },
-  { id: 'trending', labelKey: 'Trending.Trending', icon: ['fas', 'fire'], requiresLocalApi: true },
-  { id: 'popular', labelKey: 'Most Popular', icon: ['fas', 'users'] },
   { id: 'stats', labelKey: 'Stats.Stats', icon: ['fas', 'chart-line'] },
-  { id: 'twitch', labelKey: 'Twitch Page.Twitch', icon: ['fab', 'twitch'], requiresYtDlp: true },
 ].map(Object.freeze))
 
 export const DEFAULT_NAVIGATION_ITEMS = Object.freeze(NAVIGATION_ITEM_DEFINITIONS.map(({ id }) => id))

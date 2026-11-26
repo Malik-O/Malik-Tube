@@ -173,18 +173,6 @@
         />
       </div>
     </div>
-    <FtSliderGrid>
-      <FtSlider
-        :label="t('Settings.Theme Settings.Visible Search Suggestions')"
-        :tooltip="t('Tooltips.Theme Settings.Visible Search Suggestions')"
-        :default-value="visibleSearchSuggestions"
-        setting-key="visibleSearchSuggestions"
-        :min-value="5"
-        :max-value="50"
-        :step="1"
-        @change="store.dispatch('updateVisibleSearchSuggestions', $event)"
-      />
-    </FtSliderGrid>
     <template v-if="usingElectron || IS_CAPACITOR">
       <h4 class="groupTitle">
         {{ t('Settings.Theme Settings.Sections.Tabs') }}
@@ -815,7 +803,6 @@ const scrollbarThumbWidth = computed(
   () => normalizeScrollbarThumbWidth(store.getters.getScrollbarThumbWidth)
 )
 const scrollSpeed = computed(() => normalizeScrollSpeed(store.getters.getScrollSpeed))
-const visibleSearchSuggestions = computed(() => store.getters.getVisibleSearchSuggestions)
 const animationSpeed = computed(() => store.getters.getAnimationSpeed)
 
 const systemReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')

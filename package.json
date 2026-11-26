@@ -1,7 +1,7 @@
 {
-  "name": "opentubex",
-  "productName": "OpenTubeX",
-  "desktopName": "opentubex.desktop",
+  "name": "malik-tube",
+  "productName": "Malik-Tube",
+  "desktopName": "malik-tube.desktop",
   "description": "A private YouTube client",
   "version": "0.38.2",
   "license": "AGPL-3.0-or-later",

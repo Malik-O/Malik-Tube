@@ -1,11 +1,9 @@
 // @ts-check
 
-/** @typedef {'videos' | 'shorts' | 'live' | 'community' | 'new' | 'platforms' | 'feeds'} SubscriptionTabId */
+/** @typedef {'videos' | 'community' | 'new' | 'platforms' | 'feeds'} SubscriptionTabId */
 
 export const SUBSCRIPTION_TAB_DEFINITIONS = Object.freeze([
   { id: 'videos', labelKey: 'Global.Videos', icon: ['fa', 'video'] },
-  { id: 'shorts', labelKey: 'Global.Shorts', icon: ['fa', 'clapperboard'] },
-  { id: 'live', labelKey: 'Global.Live', icon: ['fa', 'tower-broadcast'] },
   { id: 'community', labelKey: 'Global.Posts', icon: ['fa', 'message'] },
   { id: 'new', labelKey: 'Global.New', icon: ['fa', 'fire'] },
   { id: 'platforms', labelKey: 'Subscriptions.Platforms.Tab', icon: ['fas', 'globe'] },
@@ -35,8 +33,6 @@ export function normalizeSubscriptionTabs(value) {
  * @param {unknown} order
  * @param {{
  *   hideVideos: boolean,
- *   hideShorts: boolean,
- *   hideLive: boolean,
  *   hideCommunity: boolean,
  *   showNewFeed: boolean,
  *   enableRssFeeds: boolean,
@@ -45,12 +41,10 @@ export function normalizeSubscriptionTabs(value) {
  * @returns {SubscriptionTabId[]}
  */
 export function getVisibleSubscriptionTabs(order, options) {
-  const hasSubscriptionTabs = !options.hideVideos || !options.hideShorts || !options.hideLive || !options.hideCommunity
+  const hasSubscriptionTabs = !options.hideVideos || !options.hideCommunity
   /** @type {Record<SubscriptionTabId, boolean>} */
   const visible = {
     videos: !options.hideVideos,
-    shorts: !options.hideShorts,
-    live: !options.hideLive,
     community: !options.hideCommunity,
     // The New feed lists the new RSS and platform items too
     new: options.showNewFeed && (hasSubscriptionTabs || options.enableRssFeeds || options.hasFollowedChannels),

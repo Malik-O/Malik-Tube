@@ -157,155 +157,6 @@
       </FtCard>
 
       <FtCard
-        v-else-if="section.id === 'recommendations'"
-        class="homeSection"
-        data-home-section="recommendations"
-        :aria-busy="recommendationsLoading"
-      >
-        <div class="sectionHeading">
-          <div class="recommendationHeading">
-            <HomeSectionHeading
-              :title="sectionLabel(section.id)"
-              :icon="['fas', 'thumbs-up']"
-            />
-            <FtTooltip
-              v-if="recommendationsEnabled"
-              class="recommendationInfo"
-              :tooltip="recommendationDescription"
-            />
-          </div>
-          <div
-            v-if="recommendationsEnabled"
-            class="recommendationHeaderActions"
-          >
-            <FtIconButton
-              v-if="recommendationsHaveHistory"
-              :title="t('KeyboardShortcutPrompt.Refresh')"
-              :icon="['fas', 'arrows-rotate']"
-              :disabled="recommendationsLoading"
-              theme="base-no-default"
-              @click="refreshRecommendations"
-            />
-            <HomeRecommendationOptions
-              :exploration="recommendationExploration"
-              @update:exploration="setRecommendationExploration"
-              @reset="resetRecommendations"
-              @disable="setRecommendationsEnabled(false)"
-            />
-          </div>
-        </div>
-        <div
-          v-if="!recommendationsEnabled"
-          class="recommendationIntroduction"
-        >
-          <p>{{ recommendationDescription }}</p>
-          <div class="recommendationIntroductionActions">
-            <FtButton
-              :label="t('Home Page.Enable recommendations')"
-              :icon="['fas', 'power-off']"
-              @click="setRecommendationsEnabled(true)"
-            />
-            <FtButton
-              :label="t('Home Page.Keep disabled and hide this section')"
-              :icon="['fas', 'eye-slash']"
-              background-color="var(--secondary-card-bg-color)"
-              text-color="var(--primary-text-color)"
-              @click="setSectionVisibility('recommendations', false)"
-            />
-          </div>
-        </div>
-        <template v-if="recommendationsEnabled">
-          <p
-            v-if="!recommendationsHaveHistory"
-            class="recommendationStatus"
-            role="status"
-          >
-            {{ t('Home Page.Recommendations need history') }}
-          </p>
-          <FtLoader v-else-if="recommendationsLoading && recommendations.length === 0" />
-          <p
-            v-else-if="recommendations.length === 0"
-            class="recommendationStatus"
-            role="status"
-          >
-            {{ recommendationsError ? t('Home Page.Recommendations unavailable') : t('Home Page.No recommendations') }}
-          </p>
-          <FtAutoGrid
-            v-else
-            :key="recommendationFeedVersion"
-            class="recommendationFeed"
-            :grid="recommendationListType !== 'list'"
-            :item-count="recommendations.length"
-          >
-            <div
-              v-for="video in mountedRecommendations"
-              :key="video.videoId"
-              v-observe-visibility="{
-                callback: (visible, entry) => recordRecommendationImpression(video, visible, entry),
-                intersection: { threshold: 0.6 },
-                throttle: 1000,
-                throttleOptions: { leading: false },
-              }"
-              class="recommendationEntry"
-            >
-              <FtListVideo
-                :data="video"
-                appearance="result"
-                @display-title-change="recommendationDisplayTitles.set(video.videoId, $event)"
-                @click.capture="recordRecommendationClick(video, $event)"
-                @auxclick.capture="recordRecommendationClick(video, $event)"
-              />
-              <div
-                v-if="!hideRecommendationDetails"
-                class="recommendationDetails"
-              >
-                <p class="recommendationReason">
-                  {{ recommendationReason(video) }}
-                </p>
-                <div class="recommendationActions">
-                  <FtIconButton
-                    v-for="action in recommendationActions"
-                    :key="action.type"
-                    :title="t('Display Label', { label: action.label, value: action.type === 'blockChannel' ? video.author : (recommendationDisplayTitles.get(video.videoId) ?? video.title) })"
-                    :icon="recommendationFeedbackFor(video.videoId) === action.type ? (action.selectedIcon ?? action.icon) : action.icon"
-                    :aria-pressed="action.selectedIcon ? recommendationFeedbackFor(video.videoId) === action.type : null"
-                    theme="base-no-default"
-                    @click="toggleRecommendationFeedback(video, action.type)"
-                  />
-                </div>
-              </div>
-            </div>
-          </FtAutoGrid>
-          <FtLoader
-            v-if="recommendationsLoading && recommendations.length > 0"
-            :label="t('Global.Loading More')"
-            compact
-            :tab-loading-indicator="false"
-          />
-          <FtButton
-            v-else-if="recommendations.length > 0"
-            class="recommendationLoadMore"
-            :label="t('Subscriptions.Load More Videos')"
-            :icon="['fas', 'angle-down']"
-            :disabled="!recommendationsHaveSeeds"
-            @click="loadMoreRecommendations"
-          />
-        </template>
-      </FtCard>
-
-      <FtCard
-        v-else-if="section.id === 'youtubeRecommendations'"
-        class="homeSection"
-        data-home-section="youtubeRecommendations"
-      >
-        <HomeSectionHeading
-          :title="sectionLabel(section.id)"
-          :icon="['fab', 'youtube']"
-        />
-        <HomeYouTubeRecommendations />
-      </FtCard>
-
-      <FtCard
         v-else-if="section.id === 'newSinceLastVisit'"
         class="homeSection"
         data-home-section="newSinceLastVisit"
@@ -584,25 +435,18 @@
 <script setup>
 import { FtIcon } from '@opentubex/icons'
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
-import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 
-import FtAutoGrid from '../../components/FtAutoGrid/FtAutoGrid.vue'
 import FtBlockedItem from '../../components/FtBlockedItem/FtBlockedItem.vue'
-import FtListVideo from '../../components/FtListVideo/FtListVideo.vue'
 import { clampOverlayScrollTop } from '../../helpers/overlayScrollbars'
 import FtButton from '../../components/FtButton/FtButton.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/FtIconButton/FtIconButton.vue'
-import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtRetryImage from '../../components/FtRetryImage.vue'
-import FtTooltip from '../../components/FtTooltip/FtTooltip.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 import HomeShelf from './HomeShelf.vue'
 import HomeSectionHeading from './HomeSectionHeading.vue'
-import HomeYouTubeRecommendations from './HomeYouTubeRecommendations.vue'
-import HomeRecommendationOptions from './HomeRecommendationOptions.vue'
 
 import store from '../../store/index'
 import {
@@ -614,12 +458,9 @@ import { liveReminder, supportsLiveReminders } from '../../helpers/liveReminders
 import { useHomeNewSubscriptionEntries } from '../../helpers/sharedNewSubscriptionFeed'
 import { supportsYtDlp } from '../../helpers/ytDlpCapabilities'
 import { getExternalMediaHistoryId, isExternalMediaHistoryId } from '../../helpers/externalMediaHistory'
-import { isSignedInToYouTube } from '../../helpers/youtube-account-state'
-import { showToast } from '../../helpers/utils'
 import { getPostTabTitle } from '../../helpers/tabTitles'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 import { formatDateTime } from '../../helpers/dateFormat'
-import { useHomeRecommendations } from '../../composables/useHomeRecommendations'
 import { useOrderedItemReorder } from '../../composables/useOrderedItemReorder'
 import { moveItemByVisibleOffset } from '../../../orderedItems'
 
@@ -630,8 +471,6 @@ const activityReady = ref(false)
 const revealedSectionCount = ref(0)
 let activityFrame = null
 const homePage = useTemplateRef('homePage')
-const recommendationListType = computed(() => store.getters.getListType)
-const recommendationDescription = computed(() => `${t('Home Page.Recommendations description')} ${t('Home Page.Related discovery privacy')}`)
 let homeResizeObserver = null
 const reorderStatus = ref('')
 const reminders = ref([])
@@ -645,84 +484,12 @@ const sectionLayoutIds = computed(() => sectionLayout.value.map(section => secti
 const supportedSectionIds = computed(() => new Set(sectionLayout.value
   .map(section => section.id)
   .filter(id => supportsYtDlp || id !== 'recentDownloads')
-  .filter(id => (supportsLiveReminders && store.getters.getNotificationMode !== 'off') || id !== 'reminders')
-  .filter(id => id !== 'youtubeRecommendations' || isSignedInToYouTube(store.getters))))
+  .filter(id => (supportsLiveReminders && store.getters.getNotificationMode !== 'off') || id !== 'reminders')))
 const configurableSections = computed(() => (
   sectionLayout.value.filter(section => supportedSectionIds.value.has(section.id))
 ))
 const visibleSections = computed(() => configurableSections.value.filter(section => section.visible))
 const allSectionsHidden = computed(() => visibleSections.value.length === 0)
-const {
-  enabled: recommendationsEnabled,
-  hasHistory: recommendationsHaveHistory,
-  hasSeeds: recommendationsHaveSeeds,
-  isLoading: recommendationsLoading,
-  hasError: recommendationsError,
-  recommendations,
-  refresh: refreshRecommendations,
-  setEnabled: setRecommendationsEnabled,
-  exploration: recommendationExploration,
-  setExploration: setRecommendationExploration,
-  reset: resetRecommendations,
-  feedback: recommendationFeedback,
-  recordImpression: recordRecommendationImpression,
-  loadMore: loadMoreRecommendations,
-  feedVersion: recommendationFeedVersion,
-} = useHomeRecommendations(computed(() => visibleSections.value.some(section => section.id === 'recommendations')))
-
-const hideRecommendationDetails = computed(() => store.getters.getHideRecommendationDetails)
-
-function recommendationFeedbackFor(videoId) {
-  return store.state.recommendations.recommendationRecords[videoId]?.feedback
-}
-
-const recommendationActions = computed(() => [
-  { type: 'positive', label: t('Home Page.More like this'), icon: ['fas', 'thumbs-up'], selectedIcon: ['fas', 'thumbs-up-filled'] },
-  { type: 'dismiss', label: t('Home Page.Not interested'), icon: ['fas', 'thumbs-down'], selectedIcon: ['fas', 'thumbs-down-filled'] },
-  { type: 'blockChannel', label: t('Home Page.Hide this channel'), icon: ['fas', 'eye-slash'] },
-])
-
-// Clicking the selected feedback again clears it. Hiding a channel removes
-// its cards, so it offers Undo instead, restoring the earlier feedback.
-async function toggleRecommendationFeedback(video, type) {
-  const previous = recommendationFeedbackFor(video.videoId)
-  if (previous === type) {
-    recommendationFeedback(video, 'clearFeedback')
-    return
-  }
-  if (!await recommendationFeedback(video, type) || type !== 'blockChannel') return
-  showToast({
-    message: t('Home Page.Channel hidden', { channel: video.author }),
-    time: 5000,
-    icon: ['fas', 'eye-slash'],
-    buttons: [{
-      label: t('Undo'),
-      icon: ['fas', 'arrow-rotate-left'],
-      primary: true,
-      // Skip if a reset or history removal cleared the record meanwhile.
-      action: () => {
-        if (recommendationFeedbackFor(video.videoId) === 'blockChannel') recommendationFeedback(video, previous ?? 'clearFeedback')
-      },
-    }],
-  })
-}
-
-// Share the card's resolved text, including original and DeArrow titles.
-const recommendationDisplayTitles = ref(new Map())
-watch(recommendations, videos => {
-  const visibleIds = new Set(videos.map(video => video.videoId))
-  for (const videoId of recommendationDisplayTitles.value.keys()) {
-    if (!visibleIds.has(videoId)) recommendationDisplayTitles.value.delete(videoId)
-  }
-})
-
-function recommendationReason(video) {
-  const reason = video.recommendationReason
-  if (reason?.type === 'related') return t('Home Page.Related to', { title: reason.text })
-  if (reason?.type === 'channel') return t('Home Page.More from', { channel: reason.text })
-  if (reason?.type === 'topic') return t('Home Page.Matches interest', { topic: reason.text })
-  return t('Subscriptions.Subscriptions')
-}
 
 const continueWatching = computed(() => store.getters.getContinueWatchingHistory())
 const watchQueue = computed(() => store.getters.getWatchQueue)
@@ -762,14 +529,6 @@ const thumbnailOrigin = computed(() => store.getters.getBackendPreference === 'i
   : 'https://i.ytimg.com')
 
 const sectionDefinitions = computed(() => ({
-  recommendations: {
-    label: t('Home Page.Recommended for you'),
-    hasContent: true,
-  },
-  youtubeRecommendations: {
-    label: t('YouTube Account.Recommendations'),
-    hasContent: true,
-  },
   continueWatching: {
     label: t('Home Page.Continue watching'),
     get hasContent() { return continueWatching.value.length > 0 },
@@ -806,45 +565,7 @@ const renderedSections = computed(() => {
     : visibleSections.value.slice(0, revealedSectionCount.value)
   return sections.filter(section => sectionDefinitions.value[section.id].hasContent)
 })
-const hasVisibleActivity = computed(() => renderedSections.value.some(section => (
-  section.id !== 'recommendations' || recommendations.value.length > 0
-)))
-// A card mounts about 60 elements, so mounting a whole feed in the frame that
-// reveals it blocks phones for over 100 ms. Mount the first screenful, then
-// a batch per frame.
-const RECOMMENDATION_MOUNT_BATCH = 6
-const recommendationMountLimit = ref(RECOMMENDATION_MOUNT_BATCH)
-let recommendationMountFrame = null
-const mountedRecommendations = computed(() => recommendations.value.slice(0, recommendationMountLimit.value))
-const recommendationsRendered = computed(() => renderedSections.value.some(section => section.id === 'recommendations'))
-
-function cancelRecommendationMount() {
-  cancelAnimationFrame(recommendationMountFrame)
-  recommendationMountFrame = null
-}
-
-// A new feed replaces the grid, and a hidden section mounts again when shown.
-watch([recommendationFeedVersion, recommendationsRendered], () => {
-  cancelRecommendationMount()
-  recommendationMountLimit.value = RECOMMENDATION_MOUNT_BATCH
-})
-
-watch([
-  recommendationFeedVersion,
-  recommendationsRendered,
-  () => recommendations.value.length,
-  recommendationMountLimit,
-], () => {
-  if (
-    recommendationMountFrame !== null ||
-    !recommendationsRendered.value ||
-    recommendationMountLimit.value >= recommendations.value.length
-  ) return
-  recommendationMountFrame = requestAnimationFrame(() => {
-    recommendationMountFrame = null
-    recommendationMountLimit.value += RECOMMENDATION_MOUNT_BATCH
-  })
-}, { flush: 'post' })
+const hasVisibleActivity = computed(() => renderedSections.value.length > 0)
 
 const sectionLabel = sectionId => sectionDefinitions.value[sectionId]?.label ?? sectionId
 
@@ -1104,14 +825,6 @@ watch(
   { immediate: true }
 )
 
-function recordRecommendationClick(video, event) {
-  if (event.button > 1) return
-  const link = event.target.closest('a[href]')
-  if (link?.getAttribute('href')?.startsWith(`#/watch/${video.videoId}`)) {
-    recommendationFeedback(video, 'click')
-  }
-}
-
 onMounted(() => {
   // Paint the heading first, then mount one shelf per frame. Gathering data
   // and laying out every shelf together stalls slower renderers even when the
@@ -1138,7 +851,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   cancelAnimationFrame(activityFrame)
-  cancelRecommendationMount()
   homeResizeObserver?.disconnect()
   reminderLoadGeneration++
   removeReminderListener?.()

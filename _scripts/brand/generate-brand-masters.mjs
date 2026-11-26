@@ -17,12 +17,10 @@ const iconsDir = join(here, '..', '..', '_icons')
 
 const markSrc = readFileSync(join(here, 'mark-black.svg'), 'utf8')
 const markPaths = [...markSrc.matchAll(/<path\b[^>]*\bd="([^"]+)"[^>]*>/g)].map((m) => m[1])
-const wordSrc = readFileSync(join(here, 'wordmark-paths.svg'), 'utf8')
-const wordPath = wordSrc.match(/<path\b[^>]*\bd="([^"]+)"[^>]*>/)?.[1]
-
 // Native geometry boxes (from `inkscape --query`).
 const MARK = { side: 657.69397, artY: 107.644, artH: 442.406 } // mark sits in a square viewBox, vertically centered
-const WORD = { x: 12.0117, y: 78.8086, w: 1667.92, h: 282.422 }
+// "Malik-Tube" renders as SVG text (see generate-brand-icons.mjs).
+const WORD = { x: 0, y: 0, w: 1667.92, h: 282.422 }
 const round = (n) => Number(n.toFixed(3))
 
 function markGroup (color, scale, tx, ty) {
@@ -31,8 +29,9 @@ function markGroup (color, scale, tx, ty) {
 }
 
 function wordGroup (color, scale, tx, ty) {
-  // Translate the glyph bbox to the origin first, then scale/position.
-  return `<g transform="translate(${round(tx)},${round(ty)}) scale(${round(scale)}) translate(${round(-WORD.x)},${round(-WORD.y)})"><path d="${wordPath}" fill="${color}"/></g>`
+  // ty is the top of the wordmark box; place the text baseline near its bottom.
+  const fontSize = round(282.422 * scale)
+  return `<text x="${round(tx)}" y="${round(ty + 0.78 * fontSize)}" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="${fontSize}" fill="${color}">Malik-Tube</text>`
 }
 
 // ---------------------------------------------------------------------------
@@ -134,9 +133,7 @@ function ftLogoFull () {
     <g transform="translate(${round(markTx)},${round(markTy)}) scale(${round(markScale)})">
 ${markEls}
     </g>
-    <g transform="translate(${round(wordTx)},${round(wordTy)}) scale(${round(wordScale)}) translate(${round(-WORD.x)},${round(-WORD.y)})">
-      <path class="secondary-color" d="${wordPath}" />
-    </g>
+    <text class="secondary-color" x="${round(wordTx)}" y="${round(wordTy + 0.78 * 282.422 * wordScale)}" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="${round(282.422 * wordScale)}">Malik-Tube</text>
   </svg>
 `
 }
